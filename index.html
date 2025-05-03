@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ app_name }}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      text-align: left;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    p.tagline {
+      text-align: center;
+      font-style: italic;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+    form label,
+    form input,
+    form button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+    form input {
+      padding: 8px;
+    }
+    form button {
+      padding: 10px;
+    }
+    .response-section {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>{{ app_name }}</h1>
+    <p class="tagline">{{ tagline }}</p>
+
+    <form method="post">
+      <label for="appliance">Enter the appliance that is wasting water</label>
+      <input type="text" id="appliance" name="appliance" value="{{ appliance }}" required>
+      <button type="submit">Enter</button>
+    </form>
+
+    {% if water_saving_measure %}
+      <div class="response-section">
+        <h2>Responses</h2>
+        <p>{{ water_saving_measure }}</p>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
